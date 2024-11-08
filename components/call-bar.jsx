@@ -35,6 +35,8 @@ export const CallBar = ({
 }) => {
     const audioRef = useRef();
 
+    console.log(callStatus)
+
     useEffect(() => {
         if (incomingCall) {
             onCallCancle({ calling: false });
