@@ -83,7 +83,7 @@ export const useCall = (socketRef) => {
 
     return () => {
       // cleanupCall();
-      setCallStatus('idle');
+      // setCallStatus('idle');
       setIsInCall(false);
 
 
