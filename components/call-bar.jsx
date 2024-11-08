@@ -187,7 +187,7 @@ export const CallBar = ({
                         ref={remoteVideoRef}
                         autoPlay={true}
                         controls={false}
-                        className={`${!isInScreen ? "show" : "hide"}`}
+                        className={`camera ${!isInScreen ? "show" : "hide"}`}
                     />
                     <video
                         ref={remoteScreenRef}
