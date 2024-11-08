@@ -254,14 +254,6 @@ video.show {
   -o-transform: scale(1.1);
 }
 
-.remote .camera{
-  transform: scale(1.4);
-  -webkit-transform: scale(1.4);
-  -moz-transform: scale(1.4);
-  -ms-transform: scale(1.4);
-  -o-transform: scale(1.4);
-}
-
 .videos .screen {
   width: 100vh;
 }
@@ -528,4 +520,12 @@ button:hover,
     padding: 0.4rem;
     position: absolute;
   }
+
+  .remote .camera{
+  transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -o-transform: scale(1.4);
+}
 }
