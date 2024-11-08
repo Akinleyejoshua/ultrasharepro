@@ -114,7 +114,7 @@ export const useCall = (socketRef) => {
         console.log('Sending ICE candidate');
         socketRef.current.emit(`ice:call`, {
           candidate: event.candidate,
-          to: targetUserId || incomingCall?.from
+          to: targetUserId
         });
       }
     };
