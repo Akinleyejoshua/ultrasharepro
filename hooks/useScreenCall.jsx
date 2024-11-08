@@ -130,7 +130,9 @@ export const useScreenCall = (socketRef) => {
 
             const stream = await navigator.mediaDevices.getDisplayMedia({
                 video: true,
-                audio: true,
+                audio: {
+                    noiseSuppression: true
+                }
             })
 
 
