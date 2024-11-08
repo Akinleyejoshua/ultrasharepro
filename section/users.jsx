@@ -26,7 +26,7 @@ export const Users = ({users, loading, loginId, onCall}) => {
 
     return <section className="users">
         <div className="flex space-between">
-            <h3>Users</h3>
+            <h3>{loginId}</h3>
             <button className="flex items-center" onClick={() => logout(loginId)}>
                 Logout
                 <Space val={".4rem"} />
