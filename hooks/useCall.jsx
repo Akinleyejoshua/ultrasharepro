@@ -40,9 +40,11 @@ export const useCall = (socketRef) => {
     socketRef.current?.on('call:accepted', async ({ answer, to }) => {
       console.log('Call accepted with answer:', answer);
       try {
+
         await peerConnectionRef.current.setRemoteDescription(
           new RTCSessionDescription(answer)
         );
+
         setCallStatus('connected');
         setIsInCall(true)
 
@@ -130,6 +132,8 @@ export const useCall = (socketRef) => {
     peerConnectionRef.current.ontrack = (event) => {
       console.log('Received remote track');
       remoteStreamRef.current = event.streams[0];
+      setCallStatus('connected');
+
     };
 
     return peerConnectionRef.current;
