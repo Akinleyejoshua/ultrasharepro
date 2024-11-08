@@ -1,0 +1,512 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /*font-family: "Poppins", sans-serif;
+  */
+  font-weight: 100;
+  letter-spacing: 0.4px;
+  font-optical-sizing: auto;
+  /* font-family: var(--font-geist-mono); */
+  /* font-family: var(--font-geist-sans); */
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+:root {
+  --inputbg: rgb(236, 232, 232);
+  --red: rgb(248, 46, 46);
+  --black: rgb(22, 21, 21);
+  --green: rgb(35, 248, 35);
+}
+
+body {
+  padding: 0rem;
+}
+
+section.auth {
+  width: max-content;
+}
+
+section.auth h1 {
+  font-size: 40px;
+}
+
+section.auth .msg {
+  width: 24rem;
+}
+
+.msg.error {
+  color: var(--red);
+}
+
+.msg.success {
+  color: var(--green);
+}
+
+section.auth input {
+  padding: 1rem;
+  border-radius: 4rem;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+  border: none;
+  background-color: var(--inputbg);
+  /* text-align: center; */
+  font-weight: 900;
+  width: 24rem;
+}
+
+button,
+.icon {
+  border: none;
+  cursor: pointer;
+}
+
+button .icon {
+  font-size: 20px;
+}
+
+main.auth,
+main.home {
+  padding: 4rem;
+}
+
+section.auth button {
+  width: max-content;
+  padding: 1rem;
+  width: 24rem;
+  background-color: black;
+  color: white;
+  border-radius: 4rem;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+}
+
+section.users h1 {
+  font-size: 40px;
+}
+
+section.users button {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  border-radius: 4rem;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+}
+
+section.users .item {
+  margin-bottom: 1rem;
+}
+
+section.call-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 4rem;
+}
+
+section.call-bar button {
+  height: 4rem;
+  width: 4rem;
+  color: white;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 4px solid white;
+}
+
+section.video-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0rem;
+  height: 0%;
+  width: 0%;
+  overflow: hidden;
+  background-color: rgb(29, 26, 26);
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+
+section.video-bar * {
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+
+section.video-bar.show {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.videos {
+  position: relative;
+  width: 100%;
+  height: 84vh;
+  max-height: 84vh;
+  min-height: 84vh;
+}
+
+.videos .remote {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+}
+
+.videos video {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  /* background-color: black; */
+  border-radius: inherit;
+  -webkit-border-radius: inherit;
+  -moz-border-radius: inherit;
+  -ms-border-radius: inherit;
+  -o-border-radius: inherit;
+}
+
+video.hide,
+.local.hide {
+  width: 0%;
+  height: 0%;
+  min-width: 0%;
+  min-height: 0%;
+  max-width: 0%;
+  max-height: 0%;
+  overflow: hidden;
+}
+
+video.show {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.remote .bio,
+.local .bio {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.534);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.videos .local {
+  width: max-content;
+  height: 14rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  margin: 1rem;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.videos .screen {
+  width: 100vh;
+}
+
+.videos .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.video-controls {
+  height: 100%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.575);
+  backdrop-filter: blur(4rem);
+}
+
+.video-controls button {
+  height: 2rem;
+  width: 2rem;
+  color: white;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.avater {
+  position: relative;
+  border: 1px solid white;
+}
+
+.avater .active {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: var(--green);
+  right: 0;
+  bottom: 0;
+  border: 4px solid white;
+}
+
+.call-status {
+  padding: 0.4rem 1rem;
+  border-radius: 4rem;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+  border: 1px solid white;
+}
+
+.call-bg {
+  background-color: royalblue;
+  color: white;
+  background-image: radial-gradient(at 0% 0%,
+      rgb(56, 206, 89) 0,
+      transparent 50%),
+    radial-gradient(at 50% 0%, rgb(190, 43, 43) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgb(44, 84, 216) 0, transparent 50%);
+}
+
+.call-status.idle {
+  background: var(--black);
+  color: white;
+}
+
+.call-status.connected {
+  background-color: royalblue;
+  color: white;
+}
+
+.call-status.error,
+.call-status.rejected,
+.call-status.disconnected {
+  color: white;
+  background-color: var(--red);
+}
+
+.call-status.calling,
+.call-status.answering {
+  color: white;
+  background-color: var(--green);
+}
+
+.white {
+  color: white;
+}
+
+.bg-blue {
+  background-color: royalblue;
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+
+button:hover,
+.icon:hover {
+  opacity: 0.4;
+}
+
+.navbrand {
+  width: max-content;
+}
+
+*:hover,
+*:focus {
+  outline: none;
+}
+
+.blue {
+  color: royalblue;
+}
+
+.green {
+  color: var(--green);
+}
+
+.red {
+  color: var(--red);
+}
+
+.center {
+  margin: auto;
+  background-color: transparent;
+}
+
+.flex {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.max-w {
+  width: max-content;
+}
+
+.full-w {
+  width: 100%;
+}
+
+.items-center {
+  place-items: center;
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-transparent {
+  background: transparent;
+}
+
+.loader {
+  animation: 4s spin infinite linear;
+  -webkit-animation: 1s spin infinite linear;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
+.blink {
+  animation: 0.4s infinite blink;
+  -webkit-animation: 0.4s infinite blink;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .room video {
+    width: 100%;
+  }
+
+  .room .center {
+    margin: 0;
+  }
+
+  .home h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  section.auth h1 {
+    font-size: 30px;
+  }
+
+  section.auth p {
+    font-size: 14px;
+  }
+
+  main.auth,
+  main.home {
+    padding: 2rem;
+  }
+
+  section.auth {
+    width: 100%;
+  }
+
+  section.auth input,
+  section.auth button {
+    width: 100%;
+  }
+
+  section.users button {
+    padding: 0.4rem 1rem;
+  }
+
+  .videos {
+    height: 84vh;
+    max-height: 84vh;
+    min-height: 84vh;
+  }
+
+  .videos .local {
+    width: 9rem;
+    height: max-content;
+  }
+
+  section.call-bar {
+    padding: 2rem;
+  }
+
+  .remote .bio,
+  .local .bio {
+    padding: 0.4rem;
+    position: absolute;
+  }
+}
