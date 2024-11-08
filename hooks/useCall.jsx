@@ -114,7 +114,7 @@ export const useCall = (socketRef) => {
         console.log('Sending ICE candidate');
         socketRef.current.emit(`ice:call`, {
           candidate: event.candidate,
-          to: targetUserId
+          to: targetUserId || incomingCall?.from
         });
       }
     };
@@ -150,7 +150,9 @@ export const useCall = (socketRef) => {
         })
         : await navigator.mediaDevices.getUserMedia({
           video: true,
-          audio: true
+          audio: {
+            noiseSuppression: true
+          }
         });
 
       localStreamRef.current = stream;
