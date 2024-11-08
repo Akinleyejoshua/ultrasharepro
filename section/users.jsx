@@ -27,20 +27,25 @@ export const Users = ({users, loading, loginId, onCall}) => {
 
     return <section className="users">
         <div className="flex space-between items-center">
-            <div className="flex col items-center">
-                <Avater data={{ loginId: userId.current, is_active: true }} size={"3rem"} fontSize={"20px"} />
-                <Space val={".0rem"} />
-                <b>{userId.current}</b>
-            </div>
+            {userId.current &&
+                <>
+                <div className="flex col items-center">
+                    <Avater data={{ loginId: userId.current, is_active: true }} size={"3rem"} fontSize={"20px"} />
+                    <Space val={".0rem"} />
+                    <b>{userId.current}</b>
+                </div>
 
-            <div className="flex">
+                <div className="flex">
 
-                <button className="flex items-center" onClick={() => logout(loginId)}>
-                    Logout
-                    <Space val={".4rem"} />
-                    <AiOutlineLogout className="icon" />
-                </button>
-            </div>
+                    <button className="flex items-center" onClick={() => logout(loginId)}>
+                        Logout
+                        <Space val={".4rem"} />
+                        <AiOutlineLogout className="icon" />
+                    </button>
+                </div>    
+            </>
+            }
+            
             
         </div>
         <Space val={".4rem"} />
