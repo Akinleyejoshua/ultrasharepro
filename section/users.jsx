@@ -15,23 +15,26 @@ import { AiOutlineLogout, AiOutlinePhone, AiOutlineVideoCamera } from "react-ico
 
 export const Users = ({users, loading, loginId, onCall}) => {
 
-    const { socket: socketRef } = useSocket();
-
-    const { incomingCall } = useCall(socketRef);
-
-    const router = useRouter();
-
     const { logout } = useAuth();
     const { relativeTime } = useTime();
 
     return <section className="users">
-        <div className="flex space-between">
-            <h3>{loginId}</h3>
-            <button className="flex items-center" onClick={() => logout(loginId)}>
-                Logout
-                <Space val={".4rem"} />
-                <AiOutlineLogout className="icon" />
-            </button>
+        <div className="flex space-between items-center">
+            <div className="flex col items-center">
+                <Avater data={{ loginId, is_active: true }} size={"3rem"} fontSize={"20px"} />
+                <Space val={".0rem"} />
+                <b>{loginId}</b>
+            </div>
+
+            <div className="flex">
+
+                <button className="flex items-center" onClick={() => logout(loginId)}>
+                    Logout
+                    <Space val={".4rem"} />
+                    <AiOutlineLogout className="icon" />
+                </button>
+            </div>
+            
         </div>
         <Space val={".4rem"} />
         <h1 className="w6">Contacts</h1>
