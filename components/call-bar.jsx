@@ -38,6 +38,7 @@ export const CallBar = ({
     useEffect(() => {
         if (incomingCall) {
             onCallCancle({ calling: false });
+            audioRef.current?.click();
             audioRef.current?.play();
         }
     }, [incomingCall]);
@@ -80,7 +81,7 @@ export const CallBar = ({
                         <h2>{onCall?.to}</h2>
                         <Space val={".4rem"} />
                         <small className={`center call-status ${callStatus}`}>
-                            Status: {callStatus}
+                            Status: {callStatus == "" ? "idle" : callStatus}
                         </small>
                         <Space val={"4rem"} />
                         {callStatus == "calling" ? (
@@ -97,7 +98,7 @@ export const CallBar = ({
                         ) : (
                             <button
                                 onClick={() => makeCall(onCall?.from, onCall?.to)}
-                                className="flex items-center bg-blue"
+                                className="flex items-center bg-green"
                             >
                                 <AiOutlinePhone className="icon" fontSize={40} />
                             </button>
@@ -143,7 +144,7 @@ export const CallBar = ({
                                     answerCall(false);
                                     audioRef.current.pause();
                                 }}
-                                className="flex items-center bg-blue"
+                                className="flex items-center bg-green"
                             >
                                 <AiOutlinePhone className="icon" fontSize={40} />
                             </button>
