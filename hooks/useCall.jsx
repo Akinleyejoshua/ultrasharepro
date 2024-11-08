@@ -132,8 +132,6 @@ export const useCall = (socketRef) => {
     peerConnectionRef.current.ontrack = (event) => {
       console.log('Received remote track');
       remoteStreamRef.current = event.streams[0];
-      setCallStatus('connected');
-
     };
 
     return peerConnectionRef.current;
