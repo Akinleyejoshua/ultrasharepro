@@ -95,7 +95,7 @@ section.users h1 {
 section.users button {
   background-color: black;
   color: white;
-  padding: 1rem;
+  padding: .4rem 1rem;
   border-radius: 4rem;
   -webkit-border-radius: 4rem;
   -moz-border-radius: 4rem;
@@ -402,6 +402,22 @@ button:hover,
 
 .full-w {
   width: 100%;
+}
+
+.w1{
+  font-weight: 100;
+}
+
+.w3{
+  font-weight: 300;
+}
+
+.w6{
+  font-weight: 600;
+}
+
+.w9{
+  font-weight: 900;
 }
 
 .items-center {
