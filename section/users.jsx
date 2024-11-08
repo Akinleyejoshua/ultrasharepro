@@ -10,7 +10,7 @@ import { useTime } from "@/hooks/useTime";
 import { useUser } from "@/hooks/useUser"
 import { get, save } from "@/utils/helpers";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiOutlineLogout, AiOutlinePhone, AiOutlineVideoCamera } from "react-icons/ai";
 
 export const Users = ({users, loading, loginId, onCall}) => {
@@ -18,12 +18,19 @@ export const Users = ({users, loading, loginId, onCall}) => {
     const { logout } = useAuth();
     const { relativeTime } = useTime();
 
+    const userId = useRef();
+
+    useEffect(() => {
+        userId.current = loginId;
+    }, [loginId])
+
+
     return <section className="users">
         <div className="flex space-between items-center">
             <div className="flex col items-center">
-                <Avater data={{ loginId, is_active: true }} size={"3rem"} fontSize={"20px"} />
+                <Avater data={{ loginId: userId.current, is_active: true }} size={"3rem"} fontSize={"20px"} />
                 <Space val={".0rem"} />
-                <b>{loginId}</b>
+                <b>{userId.current}</b>
             </div>
 
             <div className="flex">
