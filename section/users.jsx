@@ -25,14 +25,26 @@ export const Users = ({users, loading, loginId, onCall}) => {
     const { relativeTime } = useTime();
 
     return <section className="users">
-        <div className="flex space-between">
-            <h3>Users</h3>
-            <button className="flex items-center" onClick={() => logout(loginId)}>
-                Logout
-                <Space val={".4rem"} />
-                <AiOutlineLogout className="icon" />
-            </button>
+        <div className="flex space-between items-center">
+            
+            <div className="flex col items-center">
+                <Avater data={{ loginId, is_active:true }} size={"3rem"} fontSize={"20px"} />
+                <Space val={".0rem"} />
+                <b>{ loginId }</b>
+            </div>
+
+            <div className="flex">
+
+                <button className="flex items-center" onClick={() => logout(loginId)}>
+                    Logout
+                    <Space val={".4rem"} />
+                    <AiOutlineLogout className="icon" />
+                </button>
+            </div>
+            
         </div>
+        <Space val={".4rem"} />
+        <h1 className="w6">Contacts</h1>
         <Space val={".4rem"} />
         {loading ? <Loader size={"1.4rem"} color={"black"} bcolor={"royalblue"} /> :
             users?.map((item, i) => {
