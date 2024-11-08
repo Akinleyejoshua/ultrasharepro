@@ -125,7 +125,6 @@ section.call-bar button {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  border: 4px solid white;
 }
 
 section.video-bar {
@@ -284,7 +283,6 @@ video.show {
 
 .avater {
   position: relative;
-  border: 1px solid white;
 }
 
 .avater .active {
@@ -355,6 +353,10 @@ video.show {
 
 .bg-red {
   background-color: var(--red);
+}
+
+.bg-green {
+  background-color: var(--green);
 }
 
 button:hover,
