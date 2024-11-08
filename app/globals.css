@@ -176,6 +176,7 @@ section.video-bar.show {
   max-width: 100%;
   max-height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .videos video {
@@ -251,6 +252,14 @@ video.show {
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
+}
+
+.remote .camera{
+  transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -o-transform: scale(1.4);
 }
 
 .videos .screen {
