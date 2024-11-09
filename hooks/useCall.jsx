@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useWebPush } from "./useWebPush";
+import { get } from "@/utils/helpers";
 
 export const useCall = (socketRef) => {
+
+  const { } = useWebPush(socketRef);
 
   const [userId, setUserId] = useState("");
   const [targetUserId, setTargetUserId] = useState("");
@@ -17,8 +21,6 @@ export const useCall = (socketRef) => {
   const remoteStreamRef = useRef();
 
   useEffect(() => {
-    
-
     // Handle incoming call
     socketRef.current?.on('call:incomming', async ({ from, offer, to }) => {
       console.log('Incoming call from:', from, 'with offer:', offer);
@@ -32,9 +34,9 @@ export const useCall = (socketRef) => {
       setIsInCall(false)
       setUserId(to)
       setTargetUserId(from);
-        
+
     },)
-  
+
 
     // Handle call accepted
     socketRef.current?.on('call:accepted', async ({ answer, to }) => {
@@ -68,7 +70,7 @@ export const useCall = (socketRef) => {
           await peerConnectionRef.current.addIceCandidate(
             new RTCIceCandidate(candidate)
           );
-          
+
 
         }
       } catch (error) {
@@ -201,6 +203,18 @@ export const useCall = (socketRef) => {
         offer: offer,
       });
 
+      socketRef.current?.emit("webpush:sub:send", ({
+        to,
+        payload: {
+          title: "Incoming Call",
+          body: `${from} is calling you`,
+          icon: `${location.host}/vercel.svg`,
+          data: {
+            url: `${location.href}/?incoming_call=true&from=${from}&to${to}`
+          }
+        }
+      }))
+
       return offer;
 
     } catch (error) {
@@ -302,7 +316,7 @@ export const useCall = (socketRef) => {
     // setCallStatus('idle');
   };
 
-  
+
 
   return {
     userId,
