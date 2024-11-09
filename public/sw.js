@@ -23,9 +23,10 @@ self.addEventListener("push", (event) => {
 });
 
 self.addEventListener("notificationclick", function (event) {
-  event.notification.close();
+  
   const data = event.data.json();
   const url = data.data.url;
 
   clients.openWindow(url):
+  event.notification.close();
 });
