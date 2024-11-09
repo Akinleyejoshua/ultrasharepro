@@ -22,10 +22,10 @@ self.addEventListener("push", (event) => {
   );
 });
 
-self.addEventListener("click", function (event) {
+self.addEventListener("notificationclick", function (event) {
   event.notification.close();
   const data = event.data.json();
   const url = data.data.url;
 
-  event.waitUntil(clients.openWindow(url));
+  clients.openWindow(url):
 });
