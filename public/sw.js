@@ -22,7 +22,7 @@ self.addEventListener("push", (event) => {
   );
 });
 
-self.addEventListener("notificationclick", function (event) {
+self.addEventListener("click", function (event) {
   event.notification.close();
   const data = event.data.json();
   const url = data.data.url;
