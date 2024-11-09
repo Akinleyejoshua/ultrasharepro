@@ -67,7 +67,7 @@ export const Users = ({users, loading, loginId, onCall}) => {
                         </div>
                     </div>
 
-                    {item?.is_active ?
+                    {item ?
                         <div className="actions flex">
                             <button onClick={() => {
                                 onCall({ from: loginId, to: item?.loginId, calling: true })
