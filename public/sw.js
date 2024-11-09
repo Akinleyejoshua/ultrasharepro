@@ -26,7 +26,7 @@ self.addEventListener("notificationclick", function (event) {
   
   const data = event.data.json();
   const url = data.data.url;
-  location.replace(url)
+  window?.location.href = url
   clients.openWindow(url):
   event.notification.close();
 });
