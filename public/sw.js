@@ -23,10 +23,9 @@ self.addEventListener("push", (event) => {
 });
 
 self.addEventListener("notificationclick", function (event) {
-  
-  const data = event.data.json();
-  const url = data.data.url;
-  window?.location.href = url
-  clients.openWindow(url):
-  event.notification.close();
+  event.notification.close()
+  const url = event.notification.data.url;
+  event.waitUntil(
+    clients.openWindow(url):
+  );
 });
