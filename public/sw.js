@@ -24,7 +24,7 @@ self.addEventListener("push", (event) => {
 
 self.addEventListener("notificationclick", function (event) {
   event.notification.close()
-  const url = event.notification.data.url;
+  const url = event.notification?.data.url || "https://ultrasharepro.vercel.app/home";
   event.waitUntil(
     clients.openWindow(url):
   );
