@@ -272,6 +272,18 @@ export const useCall = (socketRef) => {
         to: incomingCall.from,
         from: userId
       });
+      socketRef.current?.emit("webpush:sub:send", ({
+        to: incomingCall?.from,
+        payload: {
+          title: "Call Rejected",
+          body: `${userId} rejected the call`,
+          icon: `https://${location.host}/vercel.svg`,
+          data: {
+            url: ``
+          }
+        }
+      }))
+      
     }
     setIncomingCall(null);
     setCallStatus('idle');
@@ -281,6 +293,17 @@ export const useCall = (socketRef) => {
     const remoteUser = targetUserId || incomingCall?.from;
     if (remoteUser) {
       socketRef.current.emit(`call:end`, { to: remoteUser });
+      socketRef.current?.emit("webpush:sub:send", ({
+        to: userId,
+        payload: {
+          title: "Call Ended",
+          body: `${userId} ended the call`,
+          icon: `https://${location.host}/vercel.svg`,
+          data: {
+            url: ``
+          }
+        }
+      }))
     }
     cleanupCall();
     setIsInCall(false)
