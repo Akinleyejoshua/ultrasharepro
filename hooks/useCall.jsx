@@ -294,7 +294,7 @@ export const useCall = (socketRef) => {
     if (remoteUser) {
       socketRef.current.emit(`call:end`, { to: remoteUser });
       socketRef.current?.emit("webpush:sub:send", ({
-        to: userId,
+        to: remoteUser,
         payload: {
           title: "Call Ended",
           body: `${userId} ended the call`,
