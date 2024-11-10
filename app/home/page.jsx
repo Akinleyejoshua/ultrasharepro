@@ -9,7 +9,7 @@ import { useScreenCall } from "@/hooks/useScreenCall";
 import useSocket from "@/hooks/useSockets";
 import { useUser } from "@/hooks/useUser";
 import { Users } from "@/section/users"
-import { get } from "@/utils/helpers";
+import { get, save } from "@/utils/helpers";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -22,6 +22,8 @@ export default function Home() {
     const [onCall, setOnCall] = useState({});
 
     useEffect(() => {
+        save("prev-url", location.href);
+
         if (authenticate()) {
             socketRef.current.connect();
             if (loginId != "") {
