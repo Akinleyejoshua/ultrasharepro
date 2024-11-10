@@ -1,3 +1,4 @@
+
 self.addEventListener("push", (event) => {
   if (!event.data) {
     return;
@@ -11,21 +12,22 @@ self.addEventListener("push", (event) => {
 
   const notificationOptions = {
     body: body,
-    tag: Math.floor(Math.random()*10000000000), // Use a unique tag to prevent duplicate notifications
+    tag: Math.floor(Math.random() * 10000000000000), // Use a unique tag to prevent duplicate notifications
     icon: icon,
     data: {
       url: url, // Replace with the desired URL for redirecting user to the desired page
     },
   };
+
+  //   fs.writeFileSync("log.txt", `${url}`, { flag: "w" });
   event.waitUntil(
     self.registration.showNotification(title, notificationOptions)
   );
 });
 
 self.addEventListener("notificationclick", function (event) {
-  event.notification.close()
-  const url = event.notification?.data.url || "https://ultrasharepro.vercel.app/home";
-  event.waitUntil(
-    clients.openWindow(url):
-  );
+  event.notification.close();
+  const url = data.notification.data.url;
+
+  event.waitUntil(clients.openWindow(url));
 });
