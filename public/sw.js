@@ -1,4 +1,3 @@
-
 self.addEventListener("push", (event) => {
   if (!event.data) {
     return;
@@ -12,9 +11,10 @@ self.addEventListener("push", (event) => {
 
   const notificationOptions = {
     body: body,
-    tag: Math.floor(Math.random() * 10000000000000), // Use a unique tag to prevent duplicate notifications
     icon: icon,
+    tag: "notification",
     data: {
+      id: Math.floor(Math.random() * 10000000000000),
       url: url, // Replace with the desired URL for redirecting user to the desired page
     },
   };
