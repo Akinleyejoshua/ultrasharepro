@@ -67,7 +67,10 @@ export const CallBar = ({
                 <div className="top">
                     <AiOutlineArrowLeft
                         className="icon"
-                        onClick={() => onCallCancle({ calling: false })}
+                        onClick={() => {
+                            endCall();
+                            onCallCancle({ calling: false })
+                        }}
                         fontSize={40}
                     />
                 </div>
