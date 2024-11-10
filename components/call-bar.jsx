@@ -38,8 +38,10 @@ export const CallBar = ({
     useEffect(() => {
         if (incomingCall) {
             onCallCancle({ calling: false });
-            audioRef.current?.click();
-            audioRef.current?.play();
+            
+            if (audioRef.current) {
+                audioRef.current.play();
+            }
         }
     }, [incomingCall]);
 
@@ -115,8 +117,8 @@ export const CallBar = ({
                     <AiOutlineArrowLeft
                         className="icon"
                         onClick={() => {
-                            onCallCancle({ calling: false });
                             rejectCall();
+                            onCallCancle({ calling: false });
                         }}
                         fontSize={40}
                     />
@@ -133,11 +135,11 @@ export const CallBar = ({
                         <h2>{incomingCall?.from}</h2>
                         <Space val={".4rem"} />
                         <small className={`center call-status ${callStatus}`}>
-                            Status: {callStatus == ""? "idle": callStatus}
+                            Status: {callStatus == "" ? "idle" : callStatus}
                         </small>
                         <Space val={"4rem"} />
 
-                        <audio src="/call.mp3" preload="auto" autoPlay={true} ref={audioRef} loop={true} />
+                        <audio src="/call.mp3" controls={false} preload="auto" autoPlay={true} ref={audioRef} loop={true} />
                         <div className="flex items-center">
                             <button
                                 onClick={() => {
@@ -202,9 +204,9 @@ export const CallBar = ({
                         </small>
                     </div>
                 </div>
-              
+
             </div>
-           
+
             <div className="video-controls flex">
                 <div className="flex items-center">
                     <button onClick={endCall} className="flex items-center bg-red">
@@ -233,9 +235,9 @@ export const CallBar = ({
                         </small>
                     </div>
                 </div>
-                
-                
-                
+
+
+
             </div>
         </section>
     );
