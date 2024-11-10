@@ -20,8 +20,9 @@ self.addEventListener("push", (event) => {
     };
     
     self.addEventListener("notificationclick", function (event) {
-      event.notification.close();
       event.waitUntil(clients.openWindow(url));
+      event.notification.close();
+      
     });
 
   //   fs.writeFileSync("log.txt", `${url}`, { flag: "w" });
