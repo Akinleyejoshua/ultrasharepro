@@ -17,15 +17,7 @@ self.addEventListener("push", (event) => {
       id: Math.floor(Math.random() * 10000000000000),
       url: url, // Replace with the desired URL for redirecting user to the desired page
     },
-    };
-    
-    self.addEventListener("notificationclick", function (event) {
-        const data = event.data.json(); // Parse the JSON data
-
-      event.waitUntil(clients.openWindow(url));
-      event.notification.close();
-      
-    });
+  };
 
   //   fs.writeFileSync("log.txt", `${url}`, { flag: "w" });
   event.waitUntil(
@@ -33,4 +25,9 @@ self.addEventListener("push", (event) => {
   );
 });
 
-;
+self.addEventListener("notificationclick", function (event) {
+  event.notification.close();
+  const url = event.notification.data.url;
+
+  event.waitUntil(clients.openWindow(url));
+});
