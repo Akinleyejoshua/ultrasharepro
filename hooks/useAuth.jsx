@@ -26,10 +26,6 @@ export const useAuth = () => {
 
     const authenticate = () => {
         if (!isAuth()) {
-            if (location.pathname != "/") {
-                save("prev-url", location.href);
-                
-            }
             router.push("/")
             return false;
         } else {
