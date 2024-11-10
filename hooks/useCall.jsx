@@ -279,7 +279,7 @@ export const useCall = (socketRef) => {
           body: `${userId} rejected the call`,
           icon: `https://${location.host}/vercel.svg`,
           data: {
-            url: ``
+            url: `https://${location.host}/home?call_rejected=true`
           }
         }
       }))
@@ -300,7 +300,7 @@ export const useCall = (socketRef) => {
           body: `${userId} ended the call`,
           icon: `https://${location.host}/vercel.svg`,
           data: {
-            url: ``
+            url: `https://${location.host}/home?call_ended=true`
           }
         }
       }))
