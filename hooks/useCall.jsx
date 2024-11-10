@@ -208,7 +208,7 @@ export const useCall = (socketRef) => {
         payload: {
           title: "Incoming Call",
           body: `${from} is calling you`,
-          icon: `${location.hostname}/vercel.svg`,
+          icon: `https://${location.host}/vercel.svg`,
           data: {
             url: `${location.href}?incoming_call=true&from=${from}&to=${to}`
           }
